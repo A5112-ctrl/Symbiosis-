@@ -1,0 +1,691 @@
+-------------------------------31-012024 ----------------------------------------------------
+1) Overriding  ---  run time polymorphism ---inheritance compulsary
+		--we cant override Constructor  and static method  in inheretence(bcz father has another constructor and child has another constructor)
+		--If we want to perfornm overirde then tha fuction has same function name ,same parameter and same return type is must 
+		-- In same class we can't perform override
+		-- static data -if it intilaezed we cant change it  --if we want to call  - by using classname. fun() or by creating object
+
+---------------------------------------------------------------------------------------------
+2)Overloading  -- also known as complie time polymorphism  
+		-- same function name but different parameters
+		-- No compulsion of inheritence
+		-- we can overload Constructor  and static method
+
+--------------------------------01-02-2024------------------------------------------------------
+3)Absraction -hiding implementation  and giving essentials only
+	--we can achive 0-100 abstraction by using  abstract class (abtract methods + non abstract , method )
+	--we can achive 100 abstraction by using interface
+	--abstract methods does not cantain body/implemtation
+	--abstraction achived by 2 ways 1)by making class abstract     2)by overriding parant class method
+
+4)final keyword --final variable only once intialized and assigned
+	--object based  ,,,used for security purpose 
+	-- final class prevent inheritance
+	-- final method prevents overriding 
+	--we can not used 1)static with final  2)abstract with final   3)constructor with final  4)private with final ---    cz they prevent overriding
+
+5) Interaface -if we can extends interface to interaface
+	--we can implements class to interaface 
+	--100% abstraction is achiverd in intaerface
+
+---------------------------------02-02-2024-----------------------------------------------------
+
+6)Encapsulation --
+	--binding data into single unit
+	--varibles declared to be always private 
+    
+   ** this -this keyword  is used to store the value of local variable to global variable
+	--we use getter method which takes local variable and seetter method which return global variable
+
+---------------------------06-02-2024----------------------------------------------------------
+7) Boxing  --
+	Convert Primitive to Object called as Boxing 	
+
+primitive ----------->object       
+
+int					Integer
+char				Charachter
+float				Float
+byte				Byte
+double				Double
+long				Long
+short 				Short
+boolean 			Boolean
+	
+8)Unboxing--
+	Convert  Object to Primitive  called as Boxing 
+
+9)Integer to String  conversion    ---toString()
+	---toString() is Static method which is call by using class name
+	--- wehave to pass parameters
+10)String to Integer Conversion    ---parseInt()
+	-- is Static maethod which is call by using class name
+	--- we have to pass parameters
+
+11)	  Exception also called as --DEATH OF SCREEN
+		--java.lang package 
+		-- it is an event which is occurs during the execution of program ,that distrupts the normal flow of program instructions.
+						Throwable 
+							|
+		Error ------------------------------------Exception		
+			|									|
+1)StackOverFlowError					1) IOException			
+2)VirctualMachineError					2)SQLException  
+3)OutOfMemoryError				                3)ClassNotFoundException   
+											4) RunTimeException		
+										------a)NullPointerException   b)ArithmeticException   c)NumberFormatException    d)IndexOutOfBoundsException   (Array IndexOutOfBoundsException    ,	StringIndexOutOfBoundsException )	e)IllegalArgumentException
+
+
+exception that directly extends Exception called as CompileTime Exception
+exception that  extends Exception at run time called as RunTime Exception
+
+**  1)try catch block
+		--try alwys be executed with catch
+		--try block contain data which can throw exception
+		--catch block it can prevent stop java program
+		--try  with multiple catch 	--Exception(parent  ) can handle all excetpions 	--we can not write child Exception under parent Exception bcz it is unreachable to child class it will print parent exception only
+   ** finally -- it will always be Executed (even Exception occure or not)
+we can use try with finally
+	--throws is used to throw exception
+	-- Custome Exception --(if suppposse exception occurs and we throw then below code will not be executed by using which we cane prevent attcks and write code in another
+
+--------------------------------------07-02-2024--------------------------------------
+12)String -
+	-set of characters
+	-when we declare a string we cannot change it bcz it will be stored in string constatnt pool (SCP) and it will allocate same memory to both strings 
+	-When create object of class with new keyword then new memory will be allocated 
+	-(a==b) it will check address of string ---and isEquals check content of string 
+
+
+imp ---constructor is object based while static data is class based  so we can not make constructor -static
+
+------------------------------------------09-02-2024-------------------------------------
+
+13)StringBuffer
+-String Buffer is mutable
+-fast(mutable-do not need to create new object)
+-thread Safe and Synchronized
+
+14)StringBuilder
+-String Builder  is mutable
+-fast as compred to String Buffer (mutable-do not need to create new object)
+-not thread Safe and not Synchronized
+
+
+15)Array --  To add similar type of data 
+	--We cannot extends array capacity
+	-- int a[]=new int[6];
+	-- in array read operation is easy 
+	-- in array insertion is difficult
+
+-------------------------------13-02-2024------------------------------------
+
+
+Collection
+
+*collection is set of objects stored in single unit
+
+			collection
+		|
+___________________________________________________________
+List	         	  Queue	    	                               Set
+|		                       |priority	                    Hashset
+|1.ArrayList    Dequeue	queue	       LinkedHashset
+2.LinkedList	 |		   |
+3.Vector      ArrayDequeue	   |
+4.Stack				  sortedSet
+					|
+					TreeSetds
+------------------------------------------------------------------------------------------
+list -ordered,preserved and index based 
+ArrayList - Insertion is diffictult(Dynamic Array)	-dupication allowed  --null allowd
+Linked list -(doubly linked list) --insertion is easy --required more memory	-dupication allowed
+Vector -Synchronized
+Stack-Legacy class 
+*ArrayList:
+	-it uses dyanamic array(i.e store any number of data).
+	-it can store differnt type of dataitems.
+	-one list can add anoter list.
+	-in arraylist write operation is hard
+	-as compared to array the arraylist is very slow and time consuming
+	-it can contain multiple null values
+	-it can contain duplicate values
+
+
+
+
+*generic collection:here specific type of data in list is specified
+*non generic collection	: specific type of data is not specified
+
+
+ Java Cursor :   
+		--is an iterator which is used to iterator 0r traverce  or retrive Collection or strem object element one by one
+		--3 Types of cursor 
+				1)Iterator 		2)Listiterator 		3)Enumeration  
+
+  1) Iterator :- applied to collection interface
+	-Access the elements in forward direction only 
+	-it is used to display items in collection
+		We cannot crete object of the iterator diractly 	--if want to create object for iterator we have to use iterator() method 
+	-Iterator itr=collection_obj.iterator();
+
+2)  ListIterator:  interface and we cannot create object diractly  --we have to use ListIterator() method
+	-ListIterator it=collection_obj.listiterator();
+	-it is used to access items in forward as well as backward direction but first we have to declare forward
+	
+3)Enumeration : Iterface used for Legacy Methods or classes like Vector, Stack  , Queue ,Hashtable
+
+16)Collections 	-
+	-Collections represents a single unit of objects  i.e group
+	-provides archtiecture that manipulate and store group of objects
+	-we can perform searching ,sorting ,insertion,manipulation and deletion
+collection -->Interface
+collections -->class
+
+Non Generic    -ArrayList stores diifernt types of elements   (i.e --int ,float,boolean,Sring ,etc)
+Generic Class	-If u want to store similar kind of elements then u can use generic  	(ie. <Integer>,<String>
+
+17)ArrayList  -
+	-It can stored any type of data and duplicate ,null data also
+	-insertion ,write operation is difficult( bcz it create new memeory when any updation is done
+	-it is slower than Array
+--------------------------------------14-02-2024-------------------------
+18)Linked List
+	1.while storing value it stores the previous block address and next block adresss 
+	2.when we have to perform multiple insertion operation we can use the linkedlist
+	3.But when we have to store single value it requires prev and next adress to store so it is memory consuming
+	4.duplicate value allowed
+	5.order will be preserved
+Random -random fuction is used to generate random value
+Shuffle -shuffle the list items present in Collections class -- Collections.shuffle(ls, rn1);
+
+----------------------------------------15-02-2024-------------------------------------------
+19) Stack -- Lifo(child class list)
+	-.push()- Add items to top of the stack 
+	-.pop ()- to remove on the top of the stack
+	-.peek ()-to fetch top element from the stack
+	-.empty() -It check stack is empty or not
+	-.search ()- parameterized it return 1 best pos if the elment is present it return index  or -1 if element is not present
+	-initial capacity is 10 and capacity is doubled when stack is full
+20) Vector	-
+	-legacy class (old class)
+	-performance week 
+	-thread safe 
+	-synchronized
+	-use dynamic array
+.addElement()- to add top at the vector 
+.removeElement() -to remove top of the vector (we can value as a parameter)	-.remove() to remove element from array (we can pass index as parameter)
+.isEmpty()	-return true or false
+.elementAt(index)-- it will give element at that pos
+.size()- to get the size of the vector 	-
+
+21) HashSet-use hash table
+	-hash valued store (unordered)
+	-insertion order is not maintained unordered (it is fixed)
+	-duplication is not allowed *
+	-we can add null values  
+	- good performance as compred to linkedhastset
+  .add() -to add values
+
+22)LinkedhashSet-	(store using hash set --linked list
+	-insettion order is maintained (ordered)
+	-duplication is not allowed*
+	-write operation is easy and search op is dificult
+	-we can add only one null value 
+	-low performance as compred to hastset(slow)
+
+((.equals --is used to check content, == is used to check compare  adress (reference)
+
+23)Tree Set-
+	-null values not allowed(Ascending order)
+	-duplication not allowed *
+	-output is in Ascending Order in both string and in int 
+	-search operation is very easy
+
+
+----------------------------16-02-2024--------------------------------------------------
+24) Queue
+	--- First in first Out
+	---null values not allowed
+	--duplication is allowed
+	--stored in natural oreder 
+	-offer()	-add element in queue
+	-poll()	-to remove /pop head element  (if null values present then return null set)
+	-remove ()- to remove element (if null values present then give exception)
+	-peek()	-to peek head element 
+	
+25)ArrayDeque  -
+duplication is allwed
+null values not allwoed
+maintain order 
+add() add element
+addfirst()- to add at first 
+addlast() -to add at last
+removeFirst() -remove First element
+removeLast() -remove last element
+
+26)  Map 	
+--TreeMap(class)  implements  -->sortedMap(Interface)  extends -->Map(Interface)
+--LinkedHasMap (Class) extends HashMap (Class )implement Map(Interface)
+
+
+------------------------------------------------17-02-2024-------------------
+27) Hash Map
+	-unordered(mot maintain insertion order)
+	-if duplication key is present then key is updated
+	- we can take multiple values as null but we can not take multiple keys as null
+	-null duplication not allowed
+to print data iterable --
+	for(Map.Entry<String,Integer> ob: map.entrySet())
+
+28) LinkedHash Map
+	-unordered(not maintain insertion order)
+	-if duplication key is present then key is updated
+	- we can take multiple values as null but we can not take multiple keys as null
+	-null is not allowed
+
+28) Tree Map
+	-ordered(maintain insertion order)
+	-if duplication key is present then key is updated
+	- we can not take multiple key and values as null(null is not allowed)
+
+
+--------------------------------22-02-2024---------------------------------
+ 29)Multithreading - multiple thread starts simultaneously
+	-Multithreadign can be acheived by using 2 ways
+A)By extends Thread Class
+B) Implementing runnable interface 
+
+A)By extends Thread Class----------
+	Thread has by default start() which automatically call run()
+
+*ObjectName.sleep(1000) --It will wait for 1000 milisec (during the we have to hadled exception ) 
+*ObjectName.join() --it will allow Another Method to join 
+* System.currentTimeMillis(); --used for calculate time which will be stored in long
+*Thread.currentThread()-- to get Current Thread .
+* Thread.setName()=to set methods to thread
+*setPriority(); -to set the priority to the thread 
+	its totally depand  on JVM which thread he wants to execute
+			-3 priority  --- 1)MAX_PRIORIT(10)2)MIN_PRIORITY(0) 	3)NORM_PRIORITY(5)
+
+
+B) Implementing runnable interface--------
+	1)we have to implement unimplemnted method i.e run()
+	2)Create object Of Thread Class and Pass paramter as object of class
+
+**Interrupt	-- it will interupt the thread and throws exception
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*What is Collection in Java
+
+A Collection represents a single unit of objects, i.e., a group.
+
+
+*Collections in Java
+The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
+
+Java Collections can achieve all the operations that you perform on a data such as searching, sorting, insertion, manipulation, and deletion.
+
+Java Collection framework provides many interfaces (Set, List, Queue, Deque) and classes (ArrayList, Vector, LinkedList, PriorityQueue, HashSet, LinkedHashSet, TreeSet).
+
+Collection => interface
+Collections => class
+
+
+*Hierarchy of Collection Framework
+
+*Collection Interface
+The Collection interface is the interface which is implemented by all the classes in the collection framework. 
+
+It declares the methods that every collection will have.
+
+Some of the methods of Collection interface are Boolean add ( Object obj), Boolean addAll ( Collection c), void clear(), etc. 
+
+which are implemented by all the subclasses of Collection interface.
+
+Collection classes and interfaces comes under java.util.*;
+
+1.List Interface
+
+-List interface is the child interface of Collection interface. 
+
+-It is a list type data structure in which we can store the ordered collection of objects. 
+
+-It can have duplicate values.
+
+-List interface is implemented by the classes ArrayList, LinkedList, Vector, and Stack
+
+-There are various methods in List interface that can be used to insert, delete, and access the elements from the list.
+   
+    *classes of List interface
+
+    i.ArrayList(it holds different types of elements)(non synchronized)
+     The ArrayList class implements the List interface.
+    
+     It uses a dynamic array to store the duplicate element of different data types. 
+
+     The ArrayList class maintains/preserved the insertion order.
+
+     The elements stored in the ArrayList class can be randomly accessed.
+
+     In ArrayList, manipulation is little bit slower than the LinkedList in Java because a lot of shifting needs to occur if any element is removed from the array list/elements are added into ArrayList.
+  
+     ArrayList is non synchronized because if ArrayList is synchronized then only one thread can work on ArrayList at a time and rest of all threads cannot perform other operations on the ArrayList until the first thread release the lock. This causes overhead and reduces performance.
+ 
+
+
+    ii.LinkedList(non synchronized)
+    LinkedList implements the Collection interface. 
+
+    It uses a doubly linked list internally to store the elements. 
+
+    It can store the duplicate elements.
+
+    It maintains the insertion order.
+
+    In LinkedList, the manipulation is fast because no shifting is required.
+
+    
+
+    iii.Vector(synchronized)
+    Vector uses a dynamic array to store the data elements. 
+
+    It is similar to ArrayList. However, It is synchronized(at a time only one thread will work on particular resource) and 
+
+    contains many methods that are not the part of Collection framework.
+
+    iv. Stack(non synchronized)
+    The stack is the subclass of Vector. 
+
+    It implements the last-in-first-out data structure
+
+    The stack contains all of the methods of Vector class and also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
+
+2. Set interface
+
+The set is an interface available in the java.util package. The set interface extends the Collection interface.
+
+An unordered collection or list in which duplicates are not allowed is referred to as a set interface. 
+
+The set interface is used to create the mathematical set. 
+
+The set interface use collection interface's methods to avoid the insertion of the same elements. 
+
+    i. HashSet 
+        hash set creates collection according to the hash table. It implements Set interface
+    
+        It contains uniuqe elements 
+      
+        hash set allows null values
+       
+  	it is non synchronized
+
+        it doenst preserved insertion oreder(Its an unordered collection of elements)
+  
+        The default initial capacity of HashSet is 16
+
+JAVA 2 STANDARD EDITION ----J2SE 
+	         -- Core  Java 
+JAVA 2 MICRO EDITION   -----J2ME 
+		---Rasberry pi , Ardiono ,Samuel Edition 
+JAVA 2 ENTERPRISE EDITION -----J2EE
+		--Freame Work  API like Servlate
+
+**************************************************************************************************************************
+
+               JDBC: JAVA DATABASE CONNECTIVITY
+
+Elements:
+
+
+    jdbc application layer					jdbc driver layer
+   _______________________________________             __________________________________
+   |java appliacation	    ---->jdbc api|   -------> |     oracle--->oracle db     	|
+   |_|   <------- |     mysql---->mysql db   	|
+						      |_|
+
+
+
+
+
+steps in jdbc to connect with mysql db:
+1) load the driver
+2) make the connection
+3) write the statement
+4) execute sql command
+
+
+***************************************************************************************************************************
+
+Hibernate:
+- it is orm tool:object relational mapping
+-open source
+-loosely coupled
+-to use hibernate it doesnot force to extend any class or implement any interface
+
+			
+		java application
+			|
+      _________________|_________________________
+ 		persistent class
+       ________________|_______________________
+
+
+
+
+Maven 
+Maven is a powerful project management tool that is based on POM (project object model). It is used for projects build, dependency and documentation.
+Current version of Maven is 3.
+Automatic dependency ingestion
+Easy version control
+
+Maven repository ---website to search maven Repository
+Add below in pom.xml file---
+1) Add Junit repository
+2) Hibernate core 
+3) Mysql Connector Java 
+----------------------------------------------------------
+Steps to write code  ----------
+Src/main/java - other   xml   xml file click  (click file) ---- hibernate.cfg.xml (save)--source
+
+Dtd
+ -document type definition  --extra info about doc
+Hibernate dtd search on chrome
+<hibernate-configuration>
+<session-factory>--- we create session factory only once
+
+Mapping is done by 2 ways-
+Xml based
+Annotation based
+
+GeneratedValue( strategy=GenerationType.Auto)   -- It will auto increnebt value
+Temporal(TemporalType.Date)  ---- To add date 
+
+
+<property name="hbm2ddl.auto">create</property>  // it will always create new table in db
+		
+<property name="hbm2ddl.auto">update</property>		//it will update data from db
+	    
+<property name="hbm2ddl.auto">create-drop</property>	//it will create new table and drop it at a time
+		
+
+Transient -- it will delete  column temporally
+
+
+
+openSession --->kel tr tyach mgnt developer la karav lagat
+getCurrentSession ----->kel tr mgny he hibernate kart
+
+
+@onetomany(mappedBy="persisterclass object name" ,fetch=FetchType.LAZY)  -------->ha fakt jo class havay toch select karto
+@onetomany(mappedBy="persisterclass object name" ,fetch=FetchType.EAGER)  -------->ha sagle class  select karto je related aahet
+
+
+*********************************************************
+
+sym/onetomany/cache
+
+Cache:stored frequently used data
+
+
+progaram------hibernate------check in cache---yes---take value
+				|
+				|no
+			    take from db
+
+
+first level cache ---->based on session (if same data want retrive 2 or more times in same session then only first time it hits to db and for second time return data from cache). 
+
+
+second level cache---->based in session factory (if same data want retrive 2 or more times in different session in one sesssion factory then for each session it hits the db)
+
+
+we have to configure second level cache
+
+************Fetch Type of Data***********************
+1)Fetch.Lazy ---  It will call only those class (parent /child )he want data from table 
+	-By default Lazy Loading 
+2)Fetch.Eager-- It will call both the tables even if we want data from parent table
+
+**************Cascade Type *****************
+Cascade.all--persisit,ditatach, remove delete 
+
+Cascade.All  -- It will save the both parent table and child table in one save 
+
+***********************************************************************************
+
+
+Spring --
+	framework OF framework	
+	IOC ---inversuion of control  --manages enitire life cycle   --contain dependency to manage components that make the application
+MVC --Model View Control
+AOP--Aspect oriented programming 
+Spring security--
+
+IOC Container has 2 interfaces --1)BeanFactory  2)ApplicationContext
+
+Stepss---
+1)Spring core ,Spring contex dependecies with same version in pom.xml
+2)Spring documentation --IOC container --> Conitaner Overview -->copy the file and paste in config.xml file
+3)ApplicationContext context= new ClassPathXmlApplicationContext("config.xml");
+	
+Spring framwork---------------->
+Application Context
+AnnotationBased Configuration
+Bean Property
+Constructor Injection
+Autowired Annotation
+
+
+1)Annotaition based  
+2) XML based ---getter setter method ---parametrized constuctor 
+3)Field basedc/ Property Based Injesion
+@autowired --
+@Qualifier   --
+
+
+Spring boot
+--Auto controlation 
+--Spring Initioliziser**(create infrastructure)--web app ,Lossly compled application
+--backend uses Spring 
+
+
+frontend  ---- backend (using spring )---- database
+
+JDBC ---> ORM ---> Transaction ---> Java messanging Sevices (JMS-- for communaction) 
+Rest Controling 
+
+
+server-port:8085 --- if it shows like spring is already use then change the port number﻿
+stater --Combo(combination of Dependencies)
+
+@RestController --- used to create RestFullAPI
+
+Spring is used as backend.
+
+Jdbc-orm-transaction-jms(java messaging service)
+
+	1. Go to Spring initializr : set all things then explore then download & extract it
+	2. Open eclipse go to new file import maven existing maven projects, browse path and set extracted file path
+	3. Create package com.demo.controller
+	4. In that create a class Mycontoller, add @RestController  
+	5. In that class create a method getHello(), add @GetMapping("/")
+	6. Go on browser in url tab type localhost:port no/ like localhost:8080/
+	7.Add dependency Of DevTool for live server 
+
+If we have to get input from the user and print  then we have to right in chrome -->  localhost:8089/profile?name="Anuja"
+
+http function  -->get ,post ,delete 
+
+Brower -->Cleint 
+RestController  -> Service provider
+
+Http request: Browser to controller
+http Respose: controller to Browser
+
+Error msg we Get 3 msgesc--> 1) Status   2)Error  msg    3) Timestamp
+
+
+***********************************************************
+  REST  --Representational state trasfer(Aplicationa programing Interface ) 
+ex -->Zomato  uses Google Map
+
+		 --->>>>Request-->>>-->  
+Client 								Server
+		<<<<---Responce <<<<---	
+
+XML ,  JSON (JavScript Object Notation )format mdhe request send krte ---
+	--It allows you to exchange data across diff aplication,platforms,or in systems 
+
+
+
+
+
+Save All Resources  --install
+
+arrow resouces saver 
+save 
+zip file atract
+
+
+
+
+Spring TheymeLeaf --->
+				http request			  model				View
+web browser-----------------> Controller------------> Html (ThemeLeaf)------> Display on Browser
+
+
+
